@@ -5,19 +5,25 @@ import java.util.Scanner;
 public class Calendar {
 
 	public static void main(String[] args) {
-		System.out.println("일 월 화 수 목 금 토");
-		System.out.println("--------------------");
-		System.out.println("  1    2    3    4    5    6    7");
-		System.out.println("  8    9  10  11  12  13  14");
-		System.out.println("15  16  17  18  19  20  21");
-		System.out.println("22  23  24  25  26  27  28");
-		
+		/*
+		 * System.out.println("일 월 화 수 목 금 토");
+		 * System.out.println("--------------------");
+		 * System.out.println("  1    2    3    4    5    6    7");
+		 * System.out.println("  8    9  10  11  12  13  14");
+		 * System.out.println("15  16  17  18  19  20  21");
+		 * System.out.println("22  23  24  25  26  27  28");
+		 * 
+		 * Scanner sc = new Scanner(System.in); System.out.printf("%n두 수를 입력하세요.%n");
+		 * int n1 = sc.nextInt(); int n2 = sc.nextInt();
+		 * System.out.println("두 수의 합은 "+(n1+n2)+"입니다."); sc.close(); //스캐너 사용종료.
+		 */
 		Scanner sc = new Scanner(System.in);
-		System.out.println("두 수를 입력하세요.");
-		int n1 = sc.nextInt();
-		int n2 = sc.nextInt();
-		System.out.println("두 수의 합은 "+(n1+n2)+"입니다.");
-		sc.close(); //스캐너 사용종료.
+		
+		int[] maxDay = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		System.out.printf("달 입력 : ");
+		int month = sc.nextInt();
+		System.out.println(month+"월 달은 "+maxDay[month-1]+"일까지 입니다.");
+		sc.close();
 	}
 }
 
