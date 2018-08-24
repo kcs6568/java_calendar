@@ -24,16 +24,25 @@ public class Calendar {
 		 */
 		Scanner sc = new Scanner(System.in);
 		Calendar cal = new Calendar();
-
-		System.out.print("반복 횟수 : ");
-		int count = sc.nextInt();
-
-		System.out.println("월을 입력");
-		for (int i = 0; i < count; i++) {
-			int month = sc.nextInt();
-			System.out.println(month + "월 달은 " + cal.getTheEndOfTheMonth(month) + "일까지 입니다.");
+		String prompt = ">";
+		int month = 0;
+		
+		while(true) {
+			System.out.print("월을 입력" + prompt);
+			month = sc.nextInt();
+			
+			if(month == -1) {
+				System.out.println("안녕");
+//				System.exit(0);
+				break;
+			}
+			if (month >= 13) {
+				continue;//처음으로 돌아감.
+			}
+			
+			System.out.println(month + "월은 " + cal.getTheEndOfTheMonth(month) + "일까지 입니다.");
 		}
-
+		
 		sc.close();
 	}
 }
