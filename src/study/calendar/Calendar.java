@@ -3,6 +3,11 @@ package study.calendar;
 import java.util.Scanner;
 
 public class Calendar {
+	private final static int[] Max_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int getTheEndOfTheMonth(int month) {
+		return Max_Days[month-1];
+	}
+	
 
 	public static void main(String[] args) {
 		/*
@@ -18,11 +23,11 @@ public class Calendar {
 		 * System.out.println("두 수의 합은 "+(n1+n2)+"입니다."); sc.close(); //스캐너 사용종료.
 		 */
 		Scanner sc = new Scanner(System.in);
+		Calendar cal = new Calendar();
 		
-		int[] maxDay = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		System.out.printf("달 입력 : ");
 		int month = sc.nextInt();
-		System.out.println(month+"월 달은 "+maxDay[month-1]+"일까지 입니다.");
+		System.out.println(month+"월 달은 "+cal.getTheEndOfTheMonth(month)+"일까지 입니다.");
 		sc.close();
 	}
 }
