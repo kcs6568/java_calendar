@@ -3,11 +3,11 @@ package study.calendar;
 import java.util.Scanner;
 
 public class Calendar {
-	private final static int[] Max_Days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private final static int[] Max_Days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
 	int getTheEndOfTheMonth(int month) {
-		return Max_Days[month-1];
+		return Max_Days[month - 1];
 	}
-	
 
 	public static void main(String[] args) {
 		/*
@@ -24,10 +24,16 @@ public class Calendar {
 		 */
 		Scanner sc = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		
-		System.out.printf("달 입력 : ");
-		int month = sc.nextInt();
-		System.out.println(month+"월 달은 "+cal.getTheEndOfTheMonth(month)+"일까지 입니다.");
+
+		System.out.print("반복 횟수 : ");
+		int count = sc.nextInt();
+
+		System.out.println("월을 입력");
+		for (int i = 0; i < count; i++) {
+			int month = sc.nextInt();
+			System.out.println(month + "월 달은 " + cal.getTheEndOfTheMonth(month) + "일까지 입니다.");
+		}
+
 		sc.close();
 	}
 }
