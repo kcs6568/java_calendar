@@ -10,47 +10,48 @@ public class Prompt {
 		Calendar cal = new Calendar();
 		int month = 0;
 		int year = 0;
+		String weekday = "";
 
 		while (true) {
-			System.out.println("연도 입력 ");
-			System.out.print("YEAR"+PROMPT);
+			System.out.println("연도 입력(종료 : -1) ");
+			System.out.print("YEAR" + PROMPT);
 			year = sc.nextInt();
-			if(year == -1) {
+			if(year < 1) {
 				System.out.println("안녕");
 				break;
 			}
+			
+			System.out.println("월 입력(종료 : -1)");
+			System.out.print("MONTH" + PROMPT);
+			month = sc.nextInt();
+			
+			if (month > 12 || month < 1) {
+				System.out.println("잘못된 입력이다.");
+				continue;
+			}
+			
+			if (month == -1) {
+				System.out.println("안녕");
+				break;
+			}
+			if (month > 12 || month < 1) {
+				System.out.println("잘못된 입력이다.");
+				continue;
+			}
+				
 
+			System.out.println("첫 번째 요일을 입력하세요(월, 화, 수, 목, 금, 토, 일)");
+			System.out.print("WEEKDAY" + PROMPT);
+			weekday = sc.next();
+			
 			if (cal.isLeapYear(year)) {
-				System.out.println("윤년입니다. 월 입력 ");
-				System.out.print("MONTH"+PROMPT);
-				month = sc.nextInt();
-
-				if (month == -1) {
-					System.out.println("안녕");
-					System.exit(0);
-					break;
-				}
-				if (month >= 13) {
-					continue;
-				}
-				cal.printCalender(year, month);
+				cal.printCalender(year, month, weekday);
 			}
-
+			
 			else {
-				System.out.println("윤년이 아닙니다. 월 입력 ");
-				System.out.print("MONTH"+PROMPT);
-				month = sc.nextInt();
-
-				if (month == -1) {
-					System.out.println("안녕");
-					System.exit(0);
-					break;
-				}
-				if (month >= 13) {
-					continue;
-				}
-				cal.printCalender(year, month);
+				cal.printCalender(year, month, weekday);
 			}
+
 		}
 		sc.close();
 	}
